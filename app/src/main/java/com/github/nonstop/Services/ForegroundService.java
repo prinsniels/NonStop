@@ -1,4 +1,4 @@
-package com.github.nonstop;
+package com.github.nonstop.Services;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -12,7 +12,10 @@ import android.os.IBinder;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 
+import com.github.nonstop.MainActivity;
+
 public class ForegroundService extends Service {
+
     public static final String CHANNEL_ID = "ForegroundServiceChannel";
 
     @Override
@@ -46,9 +49,7 @@ public class ForegroundService extends Service {
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
+    public void onDestroy() { super.onDestroy(); }
 
     @Nullable
     @Override
@@ -56,6 +57,8 @@ public class ForegroundService extends Service {
         return null;
     }
 
+    // a foreground service should always show a notification
+    // telling the end user the service is running in the background
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel serviceChannel = new NotificationChannel(
