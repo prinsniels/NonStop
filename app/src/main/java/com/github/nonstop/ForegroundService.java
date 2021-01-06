@@ -37,7 +37,9 @@ public class ForegroundService extends Service {
 //                .setSmallIcon(R.drawable.ic_stat_name)
                 .setContentIntent(pendingIntent)
                 .build();
+
         startForeground(1, notification);
+
         //do heavy work on a background thread
         //stopSelf();
         return START_NOT_STICKY;

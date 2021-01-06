@@ -32,6 +32,7 @@ public class BootReceiver extends BroadcastReceiver {
 //        Intent intent = new Intent(context, service.class);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
               Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+              context.startForegroundService(new Intent(context, ForegroundService.class));
 //            context.startForegroundService(intent);
         } else {
               Toast.makeText(context, message, Toast.LENGTH_LONG).show();
