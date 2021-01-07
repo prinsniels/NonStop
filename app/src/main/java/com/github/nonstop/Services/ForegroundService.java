@@ -23,6 +23,15 @@ public class ForegroundService extends Service {
         super.onCreate();
     }
 
+
+    /**
+     * Called by the system to to start the service
+     * Responsible for registering the app and booting the service
+     * @param intent
+     * @param flags
+     * @param startId
+     * @return
+     */
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         String input = intent.getStringExtra("inputExtra");
@@ -47,6 +56,7 @@ public class ForegroundService extends Service {
         //stopSelf();
         return START_NOT_STICKY;
     }
+
 
     @Override
     public void onDestroy() { super.onDestroy(); }

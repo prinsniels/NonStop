@@ -14,6 +14,6 @@ public class BootReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         // TODO: @ check if the right application is sending the request
-        if (Utils.shouldRecord(context)){Utils.startService(context);}
+        if (Utils.inRecordingState(context)){Utils.startService(context);}
     }
 }
