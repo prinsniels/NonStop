@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
+import com.github.nonstop.Services.ServiceFactory;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -16,12 +18,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Switch recorderSwitch = findViewById(R.id.switchRecording);
-        recorderSwitch.setChecked(Utils.inRecordingState(getApplicationContext()));
+        recorderSwitch.setChecked(ServiceFactory.inRecordingState(getApplicationContext()));
 
         recorderSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) { Utils.startService(getApplicationContext()); }
-                else {Utils.stopService(getApplicationContext()); }
+                if (isChecked) { ServiceFactory.startService(getApplicationContext()); }
+                else {
+                    ServiceFactory.stopService(getApplicationContext()); }
             }
         });
     }

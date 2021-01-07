@@ -1,4 +1,4 @@
-package com.github.nonstop;
+package com.github.nonstop.Services;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,9 +7,8 @@ import android.os.Build;
 
 import androidx.core.content.ContextCompat;
 
-import com.github.nonstop.Services.ForegroundService;
 
-public class Utils {
+public class ServiceFactory {
 
     public static boolean inRecordingState(Context context) {
         return context
